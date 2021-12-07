@@ -19,4 +19,3 @@ def test_bitwise_or():
     assert calculate("1|2") == "3.0"
     assert calculate("81|26") == "91.0"
     assert calculate("  1| 68") == "69.0"
-

@@ -23,8 +23,6 @@ calc_grammar = """
         | sum "-" product   -> sub
         | sum "|" product   -> bitwise_or
 
-
-
     ?product: atom
         | product "*" atom  -> mul
         | product "/" atom  -> div
