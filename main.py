@@ -21,6 +21,7 @@ calc_grammar = """
     ?sum: product
         | sum "+" product   -> add
         | sum "-" product   -> sub
+        | sum "|" product   -> bitwise_or
 
     ?product: atom
         | product "*" atom  -> mul
@@ -58,6 +59,9 @@ class CalculateTree(Transformer):
         except KeyError:
             raise Exception("Variable not found: %s" % name)
     
+    def bitwise_or(self, param1, param2) -> float:
+        return float(int(param1)|int(param2))
+        
     def integer_div(self, param1 : int, param2 : int) -> int:
         return int(param1 / param2)
 
