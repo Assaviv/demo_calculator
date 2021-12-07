@@ -13,3 +13,14 @@ def test_addition():
 def test_spaces():
     assert calculate("1 + 1 ") == "2.0"
     assert calculate("   10 + 20    ") == "30.0"
+
+
+def test_division():
+    assert calculate("1/1") == "1.0"
+    assert calculate("3/2") == "1.5"
+
+
+def test_integer_division():
+    assert calculate("1//1") == "1"
+    assert calculate("3//2") == "1"
+    assert calculate("4//2") == "2"

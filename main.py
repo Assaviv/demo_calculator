@@ -25,6 +25,7 @@ calc_grammar = """
     ?product: atom
         | product "*" atom  -> mul
         | product "/" atom  -> div
+        | product "//" atom -> integer_div
 
     ?atom: NUMBER           -> number
          | "-" atom         -> neg
@@ -56,6 +57,10 @@ class CalculateTree(Transformer):
             return self.vars[name]
         except KeyError:
             raise Exception("Variable not found: %s" % name)
+    
+    def integer_div(self, param1 : int, param2 : int) -> int:
+        return int(param1 / param2)
+
 
 
 def calculate(formula):
