@@ -22,6 +22,7 @@ calc_grammar = """
         | sum "+" product   -> add
         | sum "-" product   -> sub
         | sum "|" product   -> bitwise_or
+        | sum "&" product   -> bitwise_and
 
     ?product: atom
         | product "*" atom  -> mul
@@ -61,6 +62,9 @@ class CalculateTree(Transformer):
     
     def bitwise_or(self, param1, param2) -> float:
         return float(int(param1)|int(param2))
+
+    def bitwise_and(self, param1, param2) -> float:
+        return float(int(param1)&int(param2))
         
     def integer_div(self, param1 : int, param2 : int) -> int:
         return int(param1 / param2)

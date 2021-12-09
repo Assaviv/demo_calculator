@@ -22,6 +22,11 @@ def test_bitwise_or():
     assert calculate("  1| 68") == "69.0"
 
 
+def test_bitwise_and():
+    assert calculate("1&1") == "1.0"
+    assert calculate("3&5") == "1.0"
+    assert calculate("5&45") == "5.0"
+
 def test_division():
     assert calculate("1/1") == "1.0"
     assert calculate("3/2") == "1.5"
